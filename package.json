@@ -1,7 +1,7 @@
 {
   "name": "figma-icons",
-  "version": "0.0.7",
-  "description": "Juuust Vue Icon, Automation workflow with Figma",
+  "version": "0.0.1",
+  "description": "Automation workflow with Figma",
   "main": "bundle/index.common.js",
   "files": [
     "dist",
