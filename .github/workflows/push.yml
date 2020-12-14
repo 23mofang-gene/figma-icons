@@ -1,0 +1,44 @@
+name: Export SVG from Figma
+on:
+  push:
+    branches:
+    - master
+jobs:
+  all:
+    name: Figma Export
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: yarn install
+    - name: Figma Action
+      uses: primer/figma-action@v1.0.0-alpha.3
+      with:
+        args: "format=svg outputDir=./src/"
+      env:
+        FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
+        FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+    - run: yarn generate
+    - run: yarn build
+    - run: yarn build-bundle
+    - name: GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v1.2.5
+      with:
+        build_dir: dist
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+    - run: yarn publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    - name: WeChat Work notification
+      uses: chf007/action-wechat-work@master
+      env:
+        WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_TOKEN}}
+      with:
+        msgtype: text
+        content: |
+          图标更新啦！
+          在线查看图标：https://wuweijia.github.io/figma-icon/
