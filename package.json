@@ -1,5 +1,5 @@
 {
-  "name": "figma-icon-auto",
+  "name": "figma-icons",
   "version": "0.0.7",
   "description": "Juuust Vue Icon, Automation workflow with Figma",
   "main": "bundle/index.common.js",
@@ -7,7 +7,7 @@
     "dist",
     "es"
   ],
-  "repository": "https://github.com/wuweijia/juuust-vue-icon.git",
+  "repository": "https://github.com/23mofang-gene/figma-icon",
   "scripts": {
     "generate": "sudo rm -rf src/icons && node bin/build.js",
     "serve": "vue-cli-service serve",
