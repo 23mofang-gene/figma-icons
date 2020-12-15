@@ -42,7 +42,7 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 		- name: Get current package version
 			uses: martinbeentjes/npm-get-version-action@v1.1.0
-			run: echo "Version is ${{ steps.package-version.outputs.version }}"
+		- run: echo "Version is ${{ steps.package-version.outputs.version }}"
     - name: WeChat Work notification
       uses: chf007/action-wechat-work@master
       env:
