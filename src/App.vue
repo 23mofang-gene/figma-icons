@@ -73,8 +73,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 120px;
     padding: 20px;
     margin: 20px;
     border-radius: 6px;
