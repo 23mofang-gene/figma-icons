@@ -4,18 +4,17 @@ on:
     branches:
     - master
 jobs:
-  notification:
-    name: wework notification
-    uses: chf007/action-wechat-work@master
+  deploy:
+    name: Figma Export
+    runs-on: ubuntu-latest
+    steps:
+    - name: wework notification
+      uses: chf007/action-wechat-work@master
       env:
         WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_TOKEN}}
       with:
         msgtype: text
         content: 代码已合并，正在构建图标... 😈
-  deploy:
-    name: Figma Export
-    runs-on: ubuntu-latest
-    steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
