@@ -8,7 +8,7 @@ jobs:
     name: Figma Export
     runs-on: ubuntu-latest
     steps:
-    - name: wework notification
+    - name: WeChat Work notification
       uses: chf007/action-wechat-work@master
       env:
         WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_TOKEN}}
