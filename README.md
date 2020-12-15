@@ -1,6 +1,6 @@
 ## 自动化部署图标
 
-####安装
+#### 安装
 `npm install 23mofang-icons --save`
 
 #### 使用
