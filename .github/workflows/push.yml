@@ -5,7 +5,7 @@ on:
     - master
 jobs:
   deploy:
-    name: Figma Export
+    name: 23MfIcon Export
     runs-on: ubuntu-latest
     steps:
     - name: WeChat Work notification
@@ -40,9 +40,11 @@ jobs:
     - run: yarn publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-		- name: Get current package version
-			uses: martinbeentjes/npm-get-version-action@v1.1.0
-		- run: echo "Version is ${{ steps.package-version.outputs.version }}"
+		- name: Read package.json
+			uses: tyankatsu0105/read-package-version-actions@v1
+			id: package-version
+		- name: Show version number
+			run: echo "Version is ${{ steps.package-version.outputs.version }}"
     - name: WeChat Work notification
       uses: chf007/action-wechat-work@master
       env:
@@ -51,5 +53,5 @@ jobs:
         msgtype: text
         content: |
           图标更新啦 (゜-゜)つロ干杯~-jump jump !!!
-					执行 npm install ${{ steps.package-version.outputs.current-version}}
+					执行 npm install ${{ steps.package-version.outputs.version}}
           在线查看图标：https://23mofang-gene.github.io/figma-icons/
