@@ -4,7 +4,15 @@ on:
     branches:
     - master
 jobs:
-  all:
+  notification:
+    name: wework notification
+    uses: chf007/action-wechat-work@master
+      env:
+        WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_TOKEN}}
+      with:
+        msgtype: text
+        content: 代码已合并，正在构建图标... 😈
+  deploy:
     name: Figma Export
     runs-on: ubuntu-latest
     steps:
@@ -40,5 +48,5 @@ jobs:
       with:
         msgtype: text
         content: |
-          图标更新啦！
+          图标更新啦 (゜-゜)つロ干杯~-jump jump !!!
           在线查看图标：https://23mofang-gene.github.io/figma-icons/
