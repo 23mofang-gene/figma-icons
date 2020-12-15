@@ -1,6 +1,6 @@
 {
   "name": "figma-icons",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Automation workflow with Figma",
   "main": "bundle/index.common.js",
   "files": [
