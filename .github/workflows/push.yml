@@ -53,5 +53,6 @@ jobs:
         msgtype: text
         content: |
           图标更新啦 (゜-゜)つロ干杯~-jump jump !!!
-          执行 npm install ${{ steps.package-version.outputs.version}}
-          在线查看图标：https://23mofang-gene.github.io/figma-icons/
+          更新当前版本 npm install 23mofang-icons@${{ steps.package-version.outputs.version}} 进行更新 !
+          在线预览图标：https://23mofang-gene.github.io/figma-icons/
+          查看使用方式：https://23mofang-gene.github.io/figma-icons/

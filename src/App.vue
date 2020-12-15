@@ -24,7 +24,7 @@
     name: "App",
     data () {
       return {
-        iconNames: this.ICON_NAMES
+        iconNames: this.ICON_NAMES,
       }
     },
     methods: {
@@ -55,11 +55,8 @@
     font-size: 16px;
   }
   .container {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px;
+    max-width: 1024px;
+    margin: 60px auto;
   }
   .wrapper {
     list-style: none;
