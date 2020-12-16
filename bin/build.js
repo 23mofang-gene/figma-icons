@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable prefer-template */
 const path = require('path')
 const fs = require('fs')

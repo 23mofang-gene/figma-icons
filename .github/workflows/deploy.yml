@@ -14,7 +14,14 @@ jobs:
           WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_TOKEN}}
         with:
           msgtype: text
-          content: 代码已合并，正在构建图标... 😈
+          content: 代码已合并，正在构建图标🔄... 😈
+      - name: WeChat Work notification
+        uses: chf007/action-wechat-work@master
+        env:
+          WECHAT_WORK_BOT_WEBHOOK: ${{secrets.FE_WECHAT_TOKEN}}
+        with:
+          msgtype: text
+          content: 代码已合并，正在构建图标🔄... 😈
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
@@ -52,7 +59,7 @@ jobs:
         with:
           msgtype: text
           content: |
-            图标更新啦 (゜-゜)つロ干杯~-jump jump !!!
+            图标更新啦 (゜-゜)つロ干杯~ 🍺🍺🍺!!!
             更新当前版本 npm install 23mofang-icons@${{ steps.package-version.outputs.version}}
             在线预览图标：https://23mofang-gene.github.io/figma-icons/
             查看使用方式：https://github.com/23mofang-gene/figma-icons
