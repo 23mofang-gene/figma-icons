@@ -2,7 +2,7 @@ const got = require('got')
 const {ensureDir, writeFile} = require('fs-extra')
 const {join, resolve} = require('path')
 const Figma = require('figma-js')
-const {FIGMA_TOKEN, FIGMA_FILE_URL} = require('../key.js')
+const { FIGMA_TOKEN, FIGMA_FILE_URL } = require('../key.js')
 const PQueue = require('p-queue')
 
 const options = {
@@ -59,7 +59,6 @@ client.file(fileId)
           height
         }
       } else if (c.children) {
-        // eslint-disable-next-line github/array-foreach
         c.children.forEach(check)
       }
     }

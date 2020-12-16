@@ -3,7 +3,6 @@ const cheerio = require('cheerio')
 const framework = process.env.npm_package_config_framework || 'react'
 
 /**
- * Convert string to CamelCase.
  * @param {string} str - A string.
  * @returns {string}
  */
@@ -12,8 +11,7 @@ function CamelCase(str) {
 }
 
 /**
- * Optimize SVG with `svgo`.
- * @param {string} svg - An SVG string.
+ * @param {string} svg
  * @returns {Promise<string>}
  */
 function optimize(svg) {
@@ -21,7 +19,6 @@ function optimize(svg) {
     plugins: [
       { convertShapeToPath: false },
       { mergePaths: false },
-      { removeAttrs: { attrs: '(fill|stroke.*)' } },
       { removeTitle: true },
     ],
   });

@@ -16,3 +16,11 @@ jobs:
           msgtype: text
           content: |
             UI 提交了新的图标，等待审核... 🌚
+      - name: WeChat Work notification
+        uses: chf007/action-wechat-work@master
+        env:
+          WECHAT_WORK_BOT_WEBHOOK: ${{secrets.FE_WECHAT_TOKEN}}
+        with:
+          msgtype: text
+          content: |
+            UI 提交了新的图标，等待审核... 🌚
