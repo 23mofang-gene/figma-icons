@@ -43,8 +43,9 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-      - run: yarn publish
+      - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
+      - run: echo "//mvn.23cube.com/repository/npm-host/:_authToken=${MOFANG_TOKEN}" > ~/.npmrc
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: Read package.json
