@@ -38,8 +38,6 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
-      - run: cat ~/.npmrc
       - run: npm config list
       - run: npm publish
       - env:
