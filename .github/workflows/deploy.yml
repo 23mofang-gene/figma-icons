@@ -1,8 +1,8 @@
 name: Export SVG from Figma
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 jobs:
   deploy:
     name: 23MfIcon Deploy
@@ -36,10 +36,12 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: publish package
+        run: |
+          npm config set registry https://mvn.23cube.com/repository/npm-host/
+          echo "//mvn.23cube.com/repository/npm-host/:_authToken=${secrets.MOFANG_TOKEN}" > ~/.npmrc
+          npm config list
+          npm publish
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
@@ -52,7 +54,17 @@ jobs:
         with:
           msgtype: text
           content: |
-            图标更新啦 (゜-゜)つロ干杯~-jump jump !!!
-            更新当前版本 npm install 23mofang-icons@${{ steps.package-version.outputs.version}}
+            图标更新啦 (゜-゜)つロ干杯~ 🍺🍺🍺!!!
             在线预览图标：https://23mofang-gene.github.io/figma-icons/
             查看使用方式：https://github.com/23mofang-gene/figma-icons
+      # - name: WeChat Work notification
+      #   uses: chf007/action-wechat-work@master
+      #   env:
+      #     WECHAT_WORK_BOT_WEBHOOK: ${{secrets.FE_WECHAT_TOKEN}}
+      #   with:
+      #     msgtype: text
+      #     content: |
+      #       图标更新啦 (゜-゜)つロ干杯~ 🍺🍺🍺!!!
+      #       更新当前版本 npm install 23mofang-icons@${{ steps.package-version.outputs.version}}
+      #       在线预览图标：https://23mofang-gene.github.io/figma-icons/
+      #       查看使用方式：https://github.com/23mofang-gene/figma-icons
