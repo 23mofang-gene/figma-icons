@@ -8,7 +8,7 @@ jobs:
     name: 23MfIcon Deploy
     runs-on: ubuntu-latest
     env:
-      MOFANG_TOKEN: ${{secrets.NPM_TOKEN}}
+      MOFANG_TOKEN: ${{secrets.MOFANG_TOKEN}}
     steps:
       - name: WeChat Work notification
         uses: chf007/action-wechat-work@master
@@ -29,9 +29,10 @@ jobs:
         env:
           FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-      - run: yarn generate
-      - run: yarn build
-      - run: yarn build-bundle
+      - run: |
+          yarn generate
+          yarn build
+          yarn build-bundle
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v1.2.5
         with:
@@ -42,10 +43,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-          registry-url: https://mvn.23cube.com/repository/npm-host/:_authToken=${secrets.MOFANG_TOKEN}
-      - run: |
-          npm config list
-          npm publish
+          registry-url: https://mvn.23cube.com/repository/npm-host/:_authToken=${MOFANG_TOKEN}
+      - run:  npm config list
+      - run:  npm publish
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
