@@ -1,4 +1,4 @@
-name: Export SVG from Figma
+name: notification
 on:
   push:
     branches:
