@@ -36,12 +36,12 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
-      - run: echo "//mvn.23cube.com/repository/npm-host/:_authToken=${MOFANG_TOKEN}" > ~/.npmrc
-      - run: npm config list
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: publish package
+        run: |
+          npm config set registry https://mvn.23cube.com/repository/npm-host/
+          echo "//mvn.23cube.com/repository/npm-host/:_authToken=${secrets.MOFANG_TOKEN}" > ~/.npmrc
+          npm config list
+          npm publish
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
