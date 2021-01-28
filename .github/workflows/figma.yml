@@ -42,7 +42,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-          registry-url: https://mvn.23cube.com/repository/npm-host/:_authToken=${secrets.MOFANG_TOKEN}
+          registry-url: https://mvn.23cube.com/repository/npm-host/:_authToken=${{secrets.MOFANG_TOKEN}}
       - run: npm config list
       - run: npm publish
       - name: Read package.json
