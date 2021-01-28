@@ -39,8 +39,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
+      - run: cat ~/.npmrc
       - run: npm config list
       - run: npm publish
+      - env:
+          MOFANG_TOKEN: ${{ secrets.MOFANG_TOKEN}}
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
