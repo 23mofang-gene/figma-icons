@@ -3,7 +3,7 @@ const getAttrs = (style) => {
     'xmlns': 'http://www.w3.org/2000/svg',
     ':width': 'size',
     ':height': 'size',
-    'viewBox': '0 0 30 30',
+    'viewBox': '0 0 64 64',
     'aria-hidden': 'true',
     'v-on': '$listeners'
   }
@@ -34,7 +34,7 @@ const getElementCode = (ComponentName, attrs, svgCode) => `
       props: {
         size: {
           type: Number,
-          default: 16
+          default: 64
         },
         color: {
           type: String,
