@@ -16,3 +16,8 @@ export { default as Icon26AppleLogo } from './icons/26_apple_logo.vue';
 export { default as Icon26Wechat } from './icons/26_wechat.vue';
 export { default as Icon48Moments } from './icons/48_moments.vue';
 export { default as Icon48Weibo } from './icons/48_weibo.vue';
+export { default as Icon29Health } from './icons/29_health.vue';
+export { default as Icon29Leaf } from './icons/29_leaf.vue';
+export { default as Icon60Error } from './icons/60_error.vue';
+export { default as Icon32BuyColor } from './icons/32_buy_color.vue';
+export { default as Icon60Question } from './icons/60_question.vue';
