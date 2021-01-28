@@ -5,14 +5,14 @@
         class="item"
         v-for="iconComponentName in iconNames"
         :key="iconComponentName"
-        :title="iconComponentName"
+        title="点击复制"
         @click="copyName(iconComponentName)"
       >
         <component
           :is="iconComponentName"
           :size="36"
         />
-        <div>{{iconComponentName}}</div>
+        <span class="component-name">{{ iconComponentName }}</span>
       </li>
     </ul>
   </div>
@@ -46,16 +46,12 @@
 </script>
 
 <style lang="css">
-  *{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-  }
   body{
     font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
     font-size: 16px;
   }
   .container {
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 60px auto;
   }
   .wrapper {
@@ -68,10 +64,12 @@
   .item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 20px;
     margin: 20px;
+    padding: 20px;
+    width: 120px;
+    text-align: center;
+    overflow: hidden;
     border-radius: 6px;
     cursor: pointer;
     color: #486491;
@@ -80,7 +78,11 @@
   .item:hover{
     background-color: #e7ecf3;
   }
-  .item svg{
-    margin-bottom: 12px;
+  .component-name {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 20px;
   }
 </style>
