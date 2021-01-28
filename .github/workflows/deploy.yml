@@ -1,4 +1,4 @@
-name: Export SVG from Figma
+name: generate components from Figma
 on:
   push:
     tags:
@@ -36,12 +36,10 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      - name: publish package
-        run: |
-          npm config set registry https://mvn.23cube.com/repository/npm-host/
-          echo "//mvn.23cube.com/repository/npm-host/:_authToken=${{ secrets.MOFANG_TOKEN }}" > ~/.npmrc
-          npm config list
-          npm publish
+      - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
+      # - run: echo "//mvn.23cube.com/repository/npm-host/:_authToken=${{ secrets.MOFANG_TOKEN }}" > ~/.npmrc
+      - run: npm config list
+      - run: npm publish
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
