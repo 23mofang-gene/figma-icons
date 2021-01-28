@@ -7,6 +7,8 @@ jobs:
   deploy:
     name: 23MfIcon Deploy
     runs-on: ubuntu-latest
+    env:
+      MOFANG_TOKEN: ${{ secrets.MOFANG_TOKEN}}
     steps:
       - name: WeChat Work notification
         uses: chf007/action-wechat-work@master
@@ -38,7 +40,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
       - run: npm config list
-      - run: echo "//mvn.23cube.com/repository/npm-host/:_authToken=${{ secrets.MOFANG_TOKEN }}" > /home/runner/.npmrc
       - run: npm publish
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
