@@ -1,8 +1,8 @@
 name: generate components from Figma
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
 jobs:
   deploy:
     name: 23MfIcon Deploy
