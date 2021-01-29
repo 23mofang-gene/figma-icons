@@ -43,7 +43,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "10.x"
-          registry-url: https://mvn.23cube.com/repository/npm-host/:_authToken=${secrets.MOFANG_TOKEN}
           always-auth: false
       - run:  npm config list
       - run:  npm publish
