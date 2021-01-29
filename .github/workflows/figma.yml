@@ -44,6 +44,7 @@ jobs:
         with:
           node-version: "10.x"
           always-auth: false
+      - run: npm config set registry https://mvn.23cube.com/repository/npm-host/
       - run:  npm config list
       - run:  npm publish
       - name: Read package.json
