@@ -1,0 +1,51 @@
+image: node:10-alpine
+
+stages:
+  - build-code
+  - deploy
+
+cache:
+  key: node_modules_cache
+  paths:
+    - node_modules/
+
+# 打包组件库
+build-components:
+  stage: build-code
+  before_script:
+    - npm install
+  script:
+    - npm run figma
+    - npm run generate
+    - npm run build
+    - npm run build-bundle
+  cache:
+    key: node_modules_cache
+    paths:
+      - node_modules/
+  only:
+    - tags
+
+
+# 更新npm包
+npm-publish:
+  image: timbru31/node-alpine-git:dubnium
+  cache:
+    key: node_modules_cache
+    paths:
+      - node_modules/
+  stage: deploy
+  only:
+    - tags
+  script:
+    # 获取 git 仓库的 tag
+    - export GIT_TAG=$(git describe --tags)
+    - echo $GIT_TAG
+    - npm run build
+    - cd packages && ls
+    - export NPM_ORIGIN=$(npm config get registry)
+    - echo "切换npm源"
+    - npm config set registry https://mvn.23cube.com/repository/npm-host/
+    - npm version $GIT_TAG
+    - echo '//mvn.23cube.com/repository/npm-host/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish
