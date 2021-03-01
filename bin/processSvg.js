@@ -20,7 +20,7 @@ function optimize(svg, name) {
     { mergePaths: false },
     { removeTitle: true },
   ]
-  if (!/^color/.test(name)) {
+  if (!/^color/i.test(name)) {
     plugins.push({ removeAttrs: { attrs: '(fill|stroke.*)' }})
   }
   const svgo = new Svgo({

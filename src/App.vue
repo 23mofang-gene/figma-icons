@@ -14,7 +14,6 @@
         />
         <span class="component-name">{{ iconComponentName }}</span>
       </li>
-      <Icon29Leaf color="#000"></Icon29Leaf>
     </ul>
   </div>
 </template>
