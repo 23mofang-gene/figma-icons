@@ -38,7 +38,7 @@ const getElementCode = (ComponentName, attrs, svgCode) => `
         },
         color: {
           type: String,
-          default: "currentColor"
+          default: ""
         }
       }
     };

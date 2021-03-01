@@ -8,7 +8,7 @@
   </template>
   <script>
     export default {
-      name: "Icon48Weibo",
+      name: "IconColor48Weibo",
       props: {
         size: {
           type: Number,
@@ -16,7 +16,7 @@
         },
         color: {
           type: String,
-          default: "currentColor"
+          default: ""
         }
       }
     };
