@@ -8,7 +8,7 @@
   </template>
   <script>
     export default {
-      name: "Icon26Wechat",
+      name: "IconColor26Wechat",
       props: {
         size: {
           type: Number,
@@ -16,7 +16,7 @@
         },
         color: {
           type: String,
-          default: "currentColor"
+          default: ""
         }
       }
     };

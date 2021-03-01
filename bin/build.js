@@ -43,7 +43,8 @@ const generateIconCode = async ({name}) => {
   const location = path.join(rootDir, 'src/svg', `${names.name}.svg`)
   const destination = path.join(rootDir, 'src/icons', `${names.name}.vue`)
   const code = fs.readFileSync(location)
-  const svgCode = await processSvg(code)
+  const svgCode = await processSvg(code, name)
+
   const ComponentName = names.componentName
   const component = getElementCode(ComponentName, attrsToString(getAttrs(names.style), names.style), svgCode)
 

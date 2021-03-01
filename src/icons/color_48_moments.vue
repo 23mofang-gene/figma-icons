@@ -8,7 +8,7 @@
   </template>
   <script>
     export default {
-      name: "Icon48Moments",
+      name: "IconColor48Moments",
       props: {
         size: {
           type: Number,
@@ -16,7 +16,7 @@
         },
         color: {
           type: String,
-          default: "currentColor"
+          default: ""
         }
       }
     };
