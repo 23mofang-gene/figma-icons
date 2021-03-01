@@ -2,8 +2,12 @@ const got = require('got')
 const {ensureDir, writeFile} = require('fs-extra')
 const {join, resolve} = require('path')
 const Figma = require('figma-js')
-const { FIGMA_TOKEN, FIGMA_FILE_URL } = require('../key.js')
 const PQueue = require('p-queue')
+
+const config = {
+  FIGMA_FILE_URL: 'https://www.figma.com/file/kW9LLAFAZaNSEAEB47NI0r/%F0%9F%99%83-Icon-Automation?node-id=0%3A1',
+  FIGMA_TOKEN: '143602-2e5d166c-7308-4572-bc52-3dbe7f60e144'
+}
 
 const options = {
   format: 'svg',
@@ -18,25 +22,25 @@ for(const arg of process.argv.slice(2)) {
   }
 }
 
-if(!FIGMA_TOKEN) {
+if (!config.FIGMA_TOKEN) {
   throw Error('Cannot find FIGMA_TOKEN in process!')
 }
 
 const client = Figma.Client({
-  personalAccessToken: FIGMA_TOKEN
+  personalAccessToken: config.FIGMA_TOKEN
 })
 
 // Fail if there's no figma file key
 let fileId = null
 if (!fileId) {
   try {
-    fileId = FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
+    fileId = config.FIGMA_FILE_URL.match(/file\/([a-z0-9]+)\//i)[1]
   } catch (e) {
     throw Error('Cannot find FIGMA_FILE_URL key in process!')
   }
 }
 
-console.log(`Exporting ${FIGMA_FILE_URL} components`)
+console.log(`Exporting ${config.FIGMA_FILE_URL} components`)
 client.file(fileId)
 
   .then(({ data }) => {
