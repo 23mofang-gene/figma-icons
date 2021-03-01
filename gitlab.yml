@@ -24,7 +24,7 @@ build-components:
     paths:
       - node_modules/
   only:
-    - tags
+    - master
 
 
 # 更新npm包
@@ -36,7 +36,8 @@ npm-publish:
       - node_modules/
   stage: deploy
   only:
-    - tags
+    # - tags
+    - master
   script:
     # 获取 git 仓库的 tag
     - export GIT_TAG=$(git describe --tags)
