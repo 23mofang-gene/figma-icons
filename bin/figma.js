@@ -3,11 +3,7 @@ const {ensureDir, writeFile} = require('fs-extra')
 const {join, resolve} = require('path')
 const Figma = require('figma-js')
 const PQueue = require('p-queue')
-
-const config = {
-  FIGMA_FILE_URL: 'https://www.figma.com/file/kW9LLAFAZaNSEAEB47NI0r/%F0%9F%99%83-Icon-Automation?node-id=0%3A1',
-  FIGMA_TOKEN: '143602-2e5d166c-7308-4572-bc52-3dbe7f60e144'
-}
+const config = require('../key.js')
 
 const options = {
   format: 'svg',
