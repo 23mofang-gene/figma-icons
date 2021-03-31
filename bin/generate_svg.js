@@ -2,7 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const svgDir = path.resolve(__dirname, 'src/svg')
+const svgDir = path.resolve(__dirname, '../src/svg')
 
 // 读取单个文件
 function readfile(filename) {
@@ -37,7 +37,7 @@ function readSvgs() {
 readSvgs()
   .then(data => {
     const svgFile = `/* eslint-disable */ export default ${JSON.stringify(Object.assign.apply(this, data))}`
-    fs.writeFile(path.resolve(__dirname, 'dist/svgIcons.js'), svgFile, err => {
+    fs.writeFile(path.resolve(__dirname, '../dist/svgIcons.js'), svgFile, err => {
       if (err) throw new Error(err)
     })
   }).catch(err => {
