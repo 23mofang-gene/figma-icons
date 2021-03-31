@@ -6,13 +6,13 @@
         v-for="iconComponentName in iconNames"
         :key="iconComponentName"
         title="点击复制"
-        @click="copyName(iconComponentName)"
+        @click="copyName(query.platform === 'app' ? disposeIconName(iconComponentName) : iconComponentName)"
       >
         <component
           :is="iconComponentName"
           :size="36"
         />
-        <span class="component-name">{{ iconComponentName }}</span>
+        <span class="component-name">{{ query.platform === 'app' ? disposeIconName(iconComponentName) : iconComponentName }}</span>
       </li>
     </ul>
   </div>
@@ -25,6 +25,7 @@
     data () {
       return {
         iconNames: this.ICON_NAMES,
+        query: this.getQueryObject()
       }
     },
     methods: {
@@ -40,6 +41,29 @@
         }
         document.body.removeChild(input)
         this.$message.success('复制成功')
+      },
+
+      getQueryObject(url) {
+        url = url == null ? window.location.href : url;
+        var search = url.substring(url.lastIndexOf("?") + 1);
+        var obj = {};
+        var reg = /([^?&=]+)=([^?&=]*)/g;
+        // [^?&=]+表示：除了？、&、=之外的一到多个字符
+        // [^?&=]*表示：除了？、&、=之外的0到多个字符（任意多个）
+        search.replace(reg, function (rs, $1, $2) {
+            var name = decodeURIComponent($1);
+            var val = decodeURIComponent($2);
+            val = String(val);
+            obj[name] = val;
+            return rs;
+        });
+        return obj;
+      },
+
+      disposeIconName(name) {
+         let newName = name.replace(/([a-zA-Z0-9])(?=[A-Z])|(?=[0-9])/g, '$1_').toLowerCase()
+
+         return newName.split('icon_')[1]
       }
     }
   };

@@ -4,7 +4,7 @@
 `npm install 23mofang-icons --save`
 
 #### 使用
-
+##### Web端
 ```js
 <template>
   <div>
@@ -22,6 +22,12 @@ export default {
 </script>
 ```
 
-test
+##### APP端
+```js
+import MultiColorIcon from '@components/MultiColorIcon'
+
+<MultiColorIcon name="29_home_solid" size={29} color="#DB7093" />
+```
+
 
 

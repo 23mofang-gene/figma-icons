@@ -9,7 +9,7 @@
   ],
   "repository": "https://github.com/23mofang-gene/figma-icon",
   "scripts": {
-    "generate": "sudo rm -rf src/icons && node bin/build.js",
+    "generate": "sudo rm -rf src/icons && node bin/build.js && node bin/generate_svg.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-bundle": "vue-cli-service build --dest bundle --target lib --name index ./src/index.js",
