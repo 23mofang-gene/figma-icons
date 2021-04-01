@@ -1,6 +1,6 @@
 {
   "name": "23mofang-icons",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "description": "Automation workflow with Figma",
   "main": "bundle/index.common.js",
   "files": [
@@ -9,12 +9,13 @@
   ],
   "repository": "https://github.com/23mofang-gene/figma-icon",
   "scripts": {
-    "generate": "sudo rm -rf src/icons && node bin/build.js && node bin/generate_svg.js",
+    "generate": "sudo rm -rf src/icons && node bin/build.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build-bundle": "vue-cli-service build --dest bundle --target lib --name index ./src/index.js",
     "lint": "vue-cli-service lint",
-    "figma": "node bin/figma.js"
+    "figma": "node bin/figma.js",
+    "generate-svg": "node bin/generate_svg.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
