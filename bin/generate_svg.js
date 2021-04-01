@@ -37,7 +37,7 @@ function readSvgs() {
 readSvgs()
   .then(data => {
     const svgFile = `/* eslint-disable */ export default ${JSON.stringify(Object.assign.apply(this, data))}`
-    fs.writeFile(path.resolve(__dirname, '../bundle/svgIcons.js'), svgFile, err => {
+    fs.writeFile(path.resolve(__dirname, '../svgIcons.js'), svgFile, err => {
       if (err) throw new Error(err)
     })
   }).catch(err => {
