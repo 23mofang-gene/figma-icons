@@ -30,6 +30,7 @@ jobs:
       - run: yarn generate
       - run: yarn build
       - run: yarn build-bundle
+      - run: yarn generate-svg
       - name: GitHub Pages
         uses: crazy-max/ghaction-github-pages@v1.2.5
         with:
