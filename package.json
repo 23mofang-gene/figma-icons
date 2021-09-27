@@ -1,6 +1,6 @@
 {
   "name": "23mofang-icons",
-  "version": "0.1.55",
+  "version": "0.1.56",
   "description": "Automation workflow with Figma",
   "main": "bundle/index.common.js",
   "files": [
