@@ -16,3 +16,4 @@ jobs:
           msgtype: text
           content: |
             UI 提交了新的图标，等待审核... 🌚
+            https://github.com/23mofang-gene/figma-icons/pulls
